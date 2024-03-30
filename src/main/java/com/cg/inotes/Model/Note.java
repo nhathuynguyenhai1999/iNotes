@@ -7,9 +7,15 @@ public class Note {
     private int typeId;
 
     public Note(int id, String title, String content) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
     }
 
     public Note(String title, String content, int typeId) {
+        this.title = title;
+        this.content = content;
+        this.typeId = typeId;
     }
 
     public Note(String title, String content) {
@@ -44,6 +50,13 @@ public class Note {
     }
 
     public void setTypeId(int typeId) {
+        this.typeId = typeId;
+    }
+
+    public Note(int id, String title, String content, int typeId) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
         this.typeId = typeId;
     }
 }

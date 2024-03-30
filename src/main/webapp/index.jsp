@@ -1,6 +1,6 @@
 <%@ page import="com.cg.inotes.Model.Note" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
   <title>Danh sách Ghi chú</title>
@@ -16,8 +16,7 @@
     <th>Loại</th>
     <th>Thao tác</th>
   </tr>
-  <% Note[] notes = new com.cg.inotes.Model.Note[0];
-    for (Note note : notes) { %>
+  <% for (Note note : notes) { %>
   <tr>
     <td><%= note.getId() %></td>
     <td><%= note.getTitle() %></td>

@@ -20,7 +20,7 @@ public class NoteManagement {
         List<Note> allNotes = noteService.getAllNotes();
         try{
             Connection connection = dbContext.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM notes");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Notes");
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 int id = resultSet.getInt("id");
@@ -43,7 +43,7 @@ public class NoteManagement {
         List<Note> searchResults = noteService.searchNotes("keyword");
         try {
             Connection connection = dbContext.getConnection();
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM notes WHERE title LIKE ? OR content LIKE ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Notes WHERE title LIKE ? OR content LIKE ?");
             statement.setString(1, "%" + keyword + "%");
             statement.setString(2, "%" + keyword + "%");
             ResultSet resultSet = statement.executeQuery();
@@ -70,7 +70,7 @@ public class NoteManagement {
         noteService.addNote(newNote);
         try {
             Connection connection = dbContext.getConnection();
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO notes (title, content) VALUES (?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Notes (title, content) VALUES (?, ?)");
             statement.setString(1, note.getTitle());
             statement.setString(2, note.getContent());
             int rowsInserted = statement.executeUpdate();
@@ -87,7 +87,7 @@ public class NoteManagement {
         // Xóa Ghi chú khỏi CSDL
         try {
             Connection connection = dbContext.getConnection();
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM notes WHERE id = ?");
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM Notes WHERE id = ?");
             statement.setInt(1, noteId);
             int rowsDeleted = statement.executeUpdate();
             if (rowsDeleted > 0) {

@@ -10,6 +10,7 @@ public class DBContext {
     private DBContext(){
         String jdbcURL = "jdbc:mysql://localhost:3306/iNotes";
         String username = "root";
+        String password = "0848101999";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(jdbcURL);
